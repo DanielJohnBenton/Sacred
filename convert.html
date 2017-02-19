@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<title>Brainfug / Sacred Converter</title>
+		<style type='css'>
+			body
+			{
+				font-family: arial;
+			}
+		</style>
+		<script type='text/javascript' src='bf_to_sacred.js'></script>
+	</head>
+	<body>
+		<h1>Brainfug / Sacred Converter</h1>
+		<h2>Input</h2>
+		<textarea id='inputCode' rows='10' cols='100'></textarea><br />
+		<input type='button' value='Convert Brainfuck to Sacred' onClick='Convert(Religious)' /> <input type='button' value='Convert Sacred to Brainfuck' onclick='Convert(Sacreligious)' /> <input type='button' value='&#8648; Swap &#8650;' onclick='Swap()' />
+		<div id='warnings' style='color:red;'></div>
+		<h2>Converted</h2>
+		<textarea id='outputCode' rows='10' cols='100' onclick='this.select()'></textarea>
+	</body>
+</html>
