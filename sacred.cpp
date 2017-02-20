@@ -1,7 +1,12 @@
+#include <cstdlib>
 #include <iostream>
 #include <vector>
 #include <map>
+#include <string>
 #include <fstream>
+
+// Set to true for debug mode
+#define PRAYINGFORMIRACLES true
 
 using namespace std;
 
@@ -237,21 +242,77 @@ unsigned short Sacred(string sermon, vector<signed long> &chapter)
 				{
 					i--;
 					
-					if(code.at(
+					if(commandments[i] == "(")
+					{
+						xLoop++;
+					}
+					else if(commandments[i] == ")")
+					{
+						xLoop--;
+					}
 				}
 			}
 		}
 		else if(commandment == "(((") // output char
 		{
+			cout << (char)chapter[verse];
 		}
 		else if(commandment == ")))") // input char
 		{
+			string input = "";
+			
+			do
+			{
+				getline(cin, input);
+			} while(input.length() == 0);
+			
+			chapter[verse] = (signed long)input.at(0);
 		}
 		else if(commandment == "((()") // output integer
 		{
+			cout << chapter[verse];
 		}
 		else if(commandment == "()))") // input integer
 		{
+			string input = "";
+			
+			const char allowed[11] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-'};
+			bool validInteger = false;
+			
+			do
+			{
+				getline(cin, input);
+				
+				unsigned long l = input.length();
+				for(unsigned long i = 0; i < l; i++)
+				{
+					char inputC = input.at(i);
+					
+					bool isAllowed = false;
+					
+					for(short iAllowed = 0; iAllowed < 11; iAllowed++)
+					{
+						if(inputC == allowed[iAllowed])
+						{
+							isAllowed = true;
+							break;
+						}
+					}
+					
+					if(!isAllowed)
+					{
+						validInteger = false;
+						break;
+					}
+					else
+					{
+						validInteger = true;
+					}
+				}
+			} while(!validInteger);
+			
+			// Compiler bug workaround http://stackoverflow.com/a/20770206
+			chapter[verse] = strtol(input.c_str(), 0, 10);
 		}
 		else if(commandment == "((()))") // evaluate
 		{
@@ -270,7 +331,12 @@ int main(int argc, char* argv[])
 	vector<signed long> chapter;
 	chapter.push_back(0);
 	
-	Sacred("())( () () () () () () () () ( )) () () () () ( )) () () )) () () () )) () () () )) () (( (( (( (( )( ) )) () )) () )) )( )) )) () ( (( ) (( )( ) )) )) ((( )) )( )( )( ((( () () () () () () () ((( ((( () () () ((( )) )) ((( (( )( ((( (( ((( () () () ((( )( )( )( )( )( )( ((( )( )( )( )( )( )( )( )( ((( )) )) () ((( )) () () (((, chapter);
+	//Sacred("())( () () () () () () () () ( )) () () () () ( )) () () )) () () () )) () () () )) () (( (( (( (( )( ) )) () )) () )) )( )) )) () ( (( ) (( )( ) )) )) ((( )) )( )( )( ((( () () () () () () () ((( ((( () () () ((( )) )) ((( (( )( ((( (( ((( () () () ((( )( )( )( )( )( )( ((( )( )( )( )( )( )( )( )( ((( )) )) () ((( )) () () (((, chapter);
+	
+	// string test = "((( ))) (((";
+	string test = "((() ())) ((()";
+	
+	Sacred(test, chapter);
 }
 
 
