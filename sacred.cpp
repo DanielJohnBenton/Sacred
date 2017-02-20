@@ -2,7 +2,6 @@
 #include <iostream>
 #include <vector>
 #include <map>
-#include <string>
 #include <fstream>
 
 // Set to true for debug mode
