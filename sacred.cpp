@@ -87,33 +87,7 @@ vector<string> Bless(string sermon)
 		}
 	}
 	
-	const string fourteenCommandments[14] = {
-		"()", ")(", "((", "))", "(", ")", "(((", ")))", "((()", "()))", "((()))", "((()()))", "())(", "()()"
-	};
-	
-	vector<string> sacredCommandments;
-	
-	unsigned long nCommandments = commandments.size();
-	
-	for(unsigned long i = 0; i < nCommandments; i++)
-	{
-		bool isSacred = false;
-		for(unsigned short allowed = 0; allowed < 14; allowed++)
-		{
-			if(commandments[i] == fourteenCommandments[allowed])
-			{
-				isSacred = true;
-				break;
-			}
-		}
-		
-		if(isSacred)
-		{
-			sacredCommandments.push_back(commandments[i]);
-		}
-	}
-	
-	return sacredCommandments;
+	return commandments;
 }
 
 /*
@@ -345,7 +319,7 @@ int main(int argc, char* argv[])
 	// string test = "((( ))) (((";
 	//string test = "() ( )) ())) ((()  (( )";
 	
-	string code = "())( () () () () () () () () ( )) () () () () ( )) () () )) () () () )) () () () )) () (( (( (( (( )( ) )) () )) () )) )( )) )) () ( (( ) (( )( ) )) )) ((( )) )( )( )( ((( () () () () () () () ((( ((( () () () ((( )) )) ((( (( )( ((( (( ((( () () () ((( )( )( )( )( )( )( ((( )( )( )( )( )( )( )( )( ((( )) )) () ((( )) () () ((( ";
+	string code = "())( (test) () () () () () () () ( ))    test   () () () () ( )) () () )) () () () )) () () () )) () (( (( (( (( )( ) )) () )) () )) )( )) )) () ( (( ) (( )( ) )) )) ((( )) )( )( )( ((( () () () () () () () ((test( ((( () () () ((( )) )) ((( ((test )( ((( (( ((( () () () ((( )( )( )( )( )( )( ((( )( )( )( )( )( )( )( )( ((( )) )) () ((( )) () test () ((( ";
 	//string code = "((()()))";
 	
 	while(code != "")
