@@ -130,7 +130,7 @@ vector<string> Bless(string sermon)
 	((()))	Converts the data strip into characters and evaluates them as if they were code.
 	((()()))	Converts the data strip into characters and evaluates them as if they were code. Places this command at the end of the program to evaluate again the strip ad infinitum.
 */
-unsigned short Sacred(string sermon)
+bool Sacred(string sermon)
 {
 	vector<string> commandments = Bless(Sanctify(sermon));
 	signed long nCommandments = commandments.size();
@@ -165,7 +165,7 @@ unsigned short Sacred(string sermon)
 		
 		Confess(sins);
 		
-		return 1;
+		return false;
 	}
 	
 	vector<signed long> chapter;
@@ -191,7 +191,7 @@ unsigned short Sacred(string sermon)
 			if(verse < 0)
 			{
 				Confess("Cannot point to a position before 0.");
-				return 1;
+				return false;
 			}
 		}
 		else if(commandment == "))") // move right
@@ -218,7 +218,7 @@ unsigned short Sacred(string sermon)
 					if(i >= nCommandments)
 					{
 						Error("Went beyond code.");
-						return 1;
+						return false;
 					}*/
 					
 					if(commandments[i] == "(")
@@ -330,14 +330,14 @@ unsigned short Sacred(string sermon)
 				code +=" ((()()))";
 			}
 			
-			if(Sacred(code) != 0)
+			if(!Sacred(code))
 			{
-				return 1;
+				return false;
 			}
 		}
 	}
 	
-	return 0;
+	return true;
 }
 
 int main(int argc, char* argv[])
