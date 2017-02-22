@@ -130,7 +130,7 @@ vector<string> Bless(string sermon)
 	((()))	Converts the data strip into characters and evaluates them as if they were code.
 	((()()))	Converts the data strip into characters and evaluates them as if they were code. Places this command at the end of the program to evaluate again the strip ad infinitum.
 */
-bool Sacred(string sermon)
+string Sacred(string sermon)
 {
 	vector<string> commandments = Bless(Sanctify(sermon));
 	signed long nCommandments = commandments.size();
@@ -165,7 +165,7 @@ bool Sacred(string sermon)
 		
 		Confess(sins);
 		
-		return false;
+		return "";
 	}
 	
 	vector<signed long> chapter;
@@ -191,7 +191,7 @@ bool Sacred(string sermon)
 			if(verse < 0)
 			{
 				Confess("Cannot point to a position before 0.");
-				return false;
+				return "";
 			}
 		}
 		else if(commandment == "))") // move right
@@ -214,12 +214,12 @@ bool Sacred(string sermon)
 				{
 					i++;
 					
-					/* check should not be necessary since loop closing is tested above
+					//check should not be necessary since loop closing is tested above
 					if(i >= nCommandments)
 					{
-						Error("Went beyond code.");
-						return false;
-					}*/
+						Confess("Went beyond code.");
+						return "";
+					}
 					
 					if(commandments[i] == "(")
 					{
@@ -330,14 +330,11 @@ bool Sacred(string sermon)
 				code +=" ((()()))";
 			}
 			
-			if(!Sacred(code))
-			{
-				return false;
-			}
+			return code;
 		}
 	}
 	
-	return true;
+	return "";
 }
 
 int main(int argc, char* argv[])
@@ -348,9 +345,15 @@ int main(int argc, char* argv[])
 	// string test = "((( ))) (((";
 	//string test = "() ( )) ())) ((()  (( )";
 	
-	string test = "())( () () () () () () () () ( )) () () () () ( )) () () )) () () () )) () () () )) () (( (( (( (( )( ) )) () )) () )) )( )) )) () ( (( ) (( )( ) )) )) ((( )) )( )( )( ((( () () () () () () () ((( ((( () () () ((( )) )) ((( (( )( ((( (( ((( () () () ((( )( )( )( )( )( )( ((( )( )( )( )( )( )( )( )( ((( )) )) () ((( )) () () ((( ((()))";
+	string code = "())( () () () () () () () () ( )) () () () () ( )) () () )) () () () )) () () () )) () (( (( (( (( )( ) )) () )) () )) )( )) )) () ( (( ) (( )( ) )) )) ((( )) )( )( )( ((( () () () () () () () ((( ((( () () () ((( )) )) ((( (( )( ((( (( ((( () () () ((( )( )( )( )( )( )( ((( )( )( )( )( )( )( )( )( ((( )) )) () ((( )) () () ((( ";
+	//string code = "((()()))";
 	
-	Sacred(test);
+	while(code != "")
+	{
+		code = Sacred(code);
+	}
+	
+	return 0;
 }
 
 
