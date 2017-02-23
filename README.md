@@ -36,10 +36,10 @@ The way it works is very similar to the more famous [Brainfuck](https://github.c
 
 # More examples
 
-## Cat program
+## Cat program - integers
 
 A [cat program](https://esolangs.org/wiki/Cat_program) writes its input directly to its output.
-This will keep running until the user enters 0.
+This will keep taking integers as input until the user enters 0.
 
 ```
 ()										; set [0] to 1
