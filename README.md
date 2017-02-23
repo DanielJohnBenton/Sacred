@@ -1,6 +1,6 @@
 # Sacred
 
-[Sacred](https://esolangs.org/wiki/Sacred) is an esoteric programming language that uses only brackets and spaces.
+[Sacred](https://esolangs.org/wiki/Sacred) is a joke esoteric programming language that uses only brackets and spaces.
 
 For example, the below writes `Hello World!` to the screen:
 
