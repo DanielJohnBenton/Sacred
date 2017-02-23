@@ -19,7 +19,7 @@ The way it works is very similar to the more famous [Brainfuck](https://github.c
 ## Commands
 |Command|Meaning|Brainfuck equivalent|
 |---|---|---|
-|`())(`|Indicates Sacred [mode 1](https://esolangs.org/wiki/Sacred#Mode_1:_Brainf.2A.2A.2A) (interpret as programming language.|NONE|
+|`())(`|Indicates Sacred [mode 1](https://esolangs.org/wiki/Sacred#Mode_1:_Brainf.2A.2A.2A) (interpret as programming language).|NONE|
 |`()()`|Indicates Sacred [mode 2](https://esolangs.org/wiki/Sacred#Mode_2:_Sacred_.3Clanguage.3E) (ASCII encoding/obfuscation of any text e.g. Sacred Scheme).|NONE|
 |`()`|Increments the current byte.|`+`|
 |`)(`|Decrements the current byte.|`-`|
