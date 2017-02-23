@@ -128,6 +128,36 @@ PS D:\code\sacred> .\sacred examples/selfcodesmiley.sacred
 :^)Error: Unopened or unclosed loop detected. Commands:
  ) ((()()))
  ```
+ 
+## Cat program
+
+A [cat program](https://esolangs.org/wiki/Cat_program) writes its input directly to its output.
+This will keep running until the user enters 0.
+
+```
+()										; set [0] to 1
+)) () () () () () () () () () ()		; set [1] to 10 - newline
+((										; return to [0]
+(										; loop until [0] is 0
+	((() ()))							; take integer input and output it
+	)) (((								; move to [1] to output newline
+	((									; return to [0] to take next integer
+)										; end loop
+```
+
+Output:
+
+```
+PS D:\code\sacred> .\sacred examples/cat_int.sacred
+1
+1
+10
+10
+100
+100
+0
+0
+```
 
 # Implementation specifics
 * Commands are not just delimited by space, but also by tabs and newlines (`\n` and `\t`)
