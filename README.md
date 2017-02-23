@@ -34,15 +34,37 @@ The way it works is very similar to the more famous [Brainfuck](https://github.c
 |`((()))`|Converts the data strip into characters and evaluates them as if they were code.|NONE|
 |`((()()))`|Converts the data strip into characters and evaluates them as if they were code. Places this command at the end of the program to evaluate again the strip ad infinitum.|NONE|
 
-# Examples
+# More examples
 
-## Hello World
+## Cat program
+
+A [cat program](https://esolangs.org/wiki/Cat_program) writes its input directly to its output.
+This will keep running until the user enters 0.
 
 ```
-())( () () () () () () () () ( )) () () () () ( )) () () )) () () () )) () () () )) () (( (( (( (( )( ) )) () )) () )) )( )) )) () ( (( ) (( )( ) )) )) ((( )) )( )( )( ((( () () () () () () () ((( ((( () () () ((( )) )) ((( (( )( ((( (( ((( () () () ((( )( )( )( )( )( )( ((( )( )( )( )( )( )( )( )( ((( )) )) () ((( )) () () (((
+()										; set [0] to 1
+)) () () () () () () () () () ()		; set [1] to 10 - newline
+((										; return to [0]
+(										; loop until [0] is 0
+	((() ()))							; take integer input and output it
+	)) (((								; move to [1] to output newline
+	((									; return to [0] to take next integer
+)										; end loop
 ```
 
-Output: `Hello World!`
+Output:
+
+```
+PS D:\code\sacred> .\sacred examples/cat_int.sacred
+1
+1
+10
+10
+100
+100
+0
+0
+```
 
 ## Self-programmer
 
@@ -128,36 +150,6 @@ PS D:\code\sacred> .\sacred examples/selfcodesmiley.sacred
 :^)Error: Unopened or unclosed loop detected. Commands:
  ) ((()()))
  ```
- 
-## Cat program
-
-A [cat program](https://esolangs.org/wiki/Cat_program) writes its input directly to its output.
-This will keep running until the user enters 0.
-
-```
-()										; set [0] to 1
-)) () () () () () () () () () ()		; set [1] to 10 - newline
-((										; return to [0]
-(										; loop until [0] is 0
-	((() ()))							; take integer input and output it
-	)) (((								; move to [1] to output newline
-	((									; return to [0] to take next integer
-)										; end loop
-```
-
-Output:
-
-```
-PS D:\code\sacred> .\sacred examples/cat_int.sacred
-1
-1
-10
-10
-100
-100
-0
-0
-```
 
 # Implementation specifics
 * Commands are not just delimited by space, but also by tabs and newlines (`\n` and `\t`)
