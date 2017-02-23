@@ -42,14 +42,15 @@ A [cat program](https://esolangs.org/wiki/Cat_program) writes its input directly
 This will keep taking integers as input until the user enters 0.
 
 ```
-()										; set [0] to 1
-)) () () () () () () () () () ()		; set [1] to 10 - newline
-((										; return to [0]
-(										; loop until [0] is 0
-	((() ()))							; take integer input and output it
-	)) (((								; move to [1] to output newline
-	((									; return to [0] to take next integer
-)										; end loop
+())(                                 ; this is a Sacred program - mode 1
+()                                   ; set [0] to 1
+)) () () () () () () () () () ()     ; set [1] to 10 - newline
+((                                   ; return to [0]
+(                                    ; loop until [0] is 0
+	((() ()))                        ; take integer input and output it
+	)) (((                           ; move to [1] to output newline
+	((                               ; return to [0] to take next integer
+)                                    ; end loop
 ```
 
 Output:
