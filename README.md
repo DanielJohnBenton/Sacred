@@ -5,7 +5,11 @@
 For example, the below writes `Hello World!` to the screen:
 
 ```
-())( () () () () () () () () ( )) () () () () ( )) () () )) () () () )) () () () )) () (( (( (( (( )( ) )) () )) () )) )( )) )) () ( (( ) (( )( ) )) )) ((( )) )( )( )( ((( () () () () () () () ((( ((( () () () ((( )) )) ((( (( )( ((( (( ((( () () () ((( )( )( )( )( )( )( ((( )( )( )( )( )( )( )( )( ((( )) )) () ((( )) () () (((
+())( () () () () () () () () ( )) () () () () ( )) () () )) () () () )) () ()
+() )) () (( (( (( (( )( ) )) () )) () )) )( )) )) () ( (( ) (( )( ) )) )) (((
+)) )( )( )( ((( () () () () () () () ((( ((( () () () ((( )) )) ((( (( )( (((
+(( ((( () () () ((( )( )( )( )( )( )( ((( )( )( )( )( )( )( )( )( ((( )) )) ()
+((( )) () () (((
 ```
 
 It was specified by [Conor O'Brien](https://esolangs.org/wiki/User:Conor_O%27Brien) in 2015 but until today had no interpreter or compiler.
@@ -13,6 +17,8 @@ It was specified by [Conor O'Brien](https://esolangs.org/wiki/User:Conor_O%27Bri
 ## Commands
 |Command|Meaning|Brainfuck equivalent|
 |---|---|---|
+|`())(`|Indicates Sacred mode 1 (interpret as programming language.|NONE|
+|`()()`|Indicates Sacred mode 2 (ASCII encoding/obfuscation of any text e.g. Sacred Scheme).|NONE|
 |`()`|Increments the current byte.|`+`|
 |`)(`|Decrements the current byte.|`-`|
 |`((`|Go left in the data strip.|`<`|
