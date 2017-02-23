@@ -58,10 +58,10 @@ Output:
 PS D:\code\sacred> .\sacred examples/cat_int.sacred
 1
 1
-10
-10
-100
-100
+-5
+-5
+1000
+1000
 0
 0
 ```
