@@ -160,3 +160,7 @@ PS D:\code\sacred> .\sacred examples/selfcodesmiley.sacred
 * Enforces against negative pointer locations - must be 0 or above
 * Commands `((()))` and `((()()))` cause the memory to be evaluated as a Sacred program with its own memory strip initialised with a single cell with value 0
 * In keeping with Brainfuck, numbers in memory are integers only - `((()` will only accept an integer
+
+# Acknowledgements
+* [Conor O'Brien](https://esolangs.org/wiki/User:Conor_O%27Brien) - Esolangs
+* [Ascii Table](http://www.asciitable.com/)
