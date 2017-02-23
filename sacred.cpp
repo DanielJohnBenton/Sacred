@@ -236,11 +236,11 @@ string Sacred(string sermon)
 			
 			chapter[verse] = (signed long)input.at(0);
 		}
-		else if(commandment == "((()") // output integer
+		else if(commandment == "()))") // output integer
 		{
 			cout << chapter[verse];
 		}
-		else if(commandment == "()))") // input integer
+		else if(commandment == "((()") // input integer
 		{
 			string input = "";
 			
@@ -306,19 +306,44 @@ string Sacred(string sermon)
 
 int main(int argc, char* argv[])
 {
+	if(argc != 2)
+	{
+		cout <<"Please specify a file."<< endl;
+		cout <<"Usage: .\\sacred FILENAME.sacred"<<endl;
+		
+		return 0;
+	}
 	
-	//Sacred("())( () () () () () () () () ( )) () () () () ( )) () () )) () () () )) () () () )) () (( (( (( (( )( ) )) () )) () )) )( )) )) () ( (( ) (( )( ) )) )) ((( )) )( )( )( ((( () () () () () () () ((( ((( () () () ((( )) )) ((( (( )( ((( (( ((( () () () ((( )( )( )( )( )( )( ((( )( )( )( )( )( )( )( )( ((( )) )) () ((( )) () () (((", chapter);
+	ifstream scroll(argv[1]);
 	
-	// string test = "((( ))) (((";
-	//string test = "() ( )) ())) ((()  (( )";
+	if(!scroll.good())
+	{
+		scroll.close();
+		
+		cout <<"File '"<< argv[1] <<"' not found."<< endl;
+		
+		return 0;
+	}
 	
-	string code = "())( (test) () () () () () () () ( ))    test   () () () () ( )) () () )) () () () )) () () () )) () (( (( (( (( )( ) )) () )) () )) )( )) )) () ( (( ) (( )( ) )) )) ((( )) )( )( )( ((( () () () () () () () ((test( ((( () () () ((( )) )) ((( ((test )( ((( (( ((( () () () ((( )( )( )( )( )( )( ((( )( )( )( )( )( )( )( )( ((( )) )) () ((( )) () test () ((( ";
-	//string code = "((()()))";
+	string code = "";
+	string line = "";
+	int nLines = 0;
+	
+	while(getline(scroll, line))
+	{
+		nLines++;
+		
+		code += ((nLines > 1) ? "\n"+ line : line);
+	}
+	
+	scroll.close();
 	
 	while(code != "")
 	{
 		code = Sacred(code);
 	}
+	
+	cout << endl;
 	
 	return 0;
 }
