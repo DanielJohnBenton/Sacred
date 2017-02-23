@@ -188,13 +188,6 @@ string Sacred(string sermon)
 				{
 					i++;
 					
-					//check should not be necessary since loop closing is tested above
-					if(i >= nCommandments)
-					{
-						Confess("Went beyond code.");
-						return "";
-					}
-					
 					if(commandments[i] == "(")
 					{
 						xLoop++;
