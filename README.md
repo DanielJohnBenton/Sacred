@@ -14,6 +14,8 @@ For example, the below writes `Hello World!` to the screen:
 
 It was specified by [Conor O'Brien](https://esolangs.org/wiki/User:Conor_O%27Brien) in 2015 but until today had no interpreter or compiler.
 
+The way it works is very similar to the more famous [Brainfuck](https://github.com/DanielJohnBenton/Brainfug) language, but has some additional commands.
+
 ## Commands
 |Command|Meaning|Brainfuck equivalent|
 |---|---|---|
@@ -41,8 +43,6 @@ It was specified by [Conor O'Brien](https://esolangs.org/wiki/User:Conor_O%27Bri
 ```
 
 Output: `Hello World!`
-
-The way it works is very similar to the more famous [Brainfuck](https://github.com/DanielJohnBenton/Brainfug) language, but has some additional commands.
 
 # Implementation specifics
 * Commands are not just delimited by space, but also by tabs and newlines (`\n` and `\t`)
