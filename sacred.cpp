@@ -309,7 +309,7 @@ int main(int argc, char* argv[])
 	if(argc != 2)
 	{
 		cout <<"Please specify a file."<< endl;
-		cout <<"Usage: .\\sacred FILENAME.sacred"<<endl;
+		cout <<"Usage: .\\sacred FILENAME.sacred"<< endl;
 		
 		return 0;
 	}
@@ -347,9 +347,3 @@ int main(int argc, char* argv[])
 	
 	return 0;
 }
-
-
-
-
-
-
